@@ -5,15 +5,28 @@
   font-size: 62.5%;
 }
 
+body{
+  background-color: #F1F5F8; 
+}
+
+
+/* _______________________
+CSS Variables 
+_______________________ */
 
 :root{
   --primary-color:#102A42;
   --secondary-color:#49A6E9;
+  --secondary-color2:#617d98;
+  --secondary-color3:hsl(205, 33%, 80%);
+  --clr-white:#fff;
+  --radius:0.3rem
 }
 
-body{
-  background-color: #F1F5F8;
-}
+
+/* _____________________________
+App component Styling
+_____________________________ */
 
 
 .container {
@@ -44,24 +57,92 @@ body{
   margin: 1rem auto;
 }
 
+/* _______________________________
+Reviews Component Styling
+_______________________________ */
+
 .reviews{
-  border: 0.4rem solid var(--primary-color);
-  width: 40vw;
-  height: 60vh;
-  margin: auto;
-  background-color: white;
+  background-color: var(--clr-white);
+  padding: 1.5rem 2rem;
+  text-align: center;
 }
-
 .img-container{
-  position: relative;
-}
-
-.img{
-  position: absolute;
-  border: 2px solid blue;
-  height: 11rem;
-  width: 11rem;
+  height: 14rem;
+  width: 14rem;
   border-radius: 50%;
-  margin-top: 1rem;
+  position: relative;
+  margin : 0 auto ;
+  margin-bottom: 1.5rem;
 }
 
+.person-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  border-radius: 50%;
+}
+
+.img-container::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -0.5rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+}
+
+.quote-icon{
+  font-size: 2.5rem;
+  position: absolute;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: translate(15%,20%);
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  color: var(--clr-white);
+  background-color: var(--secondary-color);
+}
+
+.person-name{
+  font-size: 1.5rem;
+  text-transform:capitalize;
+  color: var(--primary-color);
+}
+
+.person-job{
+  font-size: 1.2rem ;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.person-text{
+  font-size: 1.3rem;
+  color: var(--secondary-color2);
+}
+
+.btn-container{
+  font-size: 4rem;
+}
+
+.btn{
+  border: none;
+  background: none;
+  color: #49A6E9;
+}
+.arrow{
+  margin: 0 1rem;
+}
+.random-btn{
+  background-color: var(--secondary-color3);
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+}

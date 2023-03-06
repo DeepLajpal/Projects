@@ -250,3 +250,10 @@ main {
   background: var(--clr-primary-5);
   color: var(--clr-primary-1);
 }
+
+.fabeer{
+  color:red;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
