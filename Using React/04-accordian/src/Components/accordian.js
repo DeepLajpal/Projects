@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import qna from './data';
 
-const Accordian = ()=>{
-    console.log(qna);
-    const [index , setIndex]= useState(0);
-    // const {info} = qna[index];
+const Accordian = ({info , title})=>{
+    console.log(info);
+    
     return(
         <div className="qna-container">
-            {/* <h3 className="question">{qna}</h3> */}
+            <h3 className="question">{title}</h3>
+            <p className="answer">{info}</p>
         </div>
     )
 }
