@@ -1,16 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './Components/Home';
 
 function App() {
   return (
     <div className="App">
-      <nav className='nav'>
-        <ul>
-          <li className='nav-item'>Home</li>
-          <li className='nav-item'>About</li>
-          <li className='nav-item'>Contact</li>
-        </ul>
-      </nav>
+      <Home/>
     </div>
   );
 }
