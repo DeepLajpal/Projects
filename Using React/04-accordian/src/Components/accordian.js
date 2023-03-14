@@ -1,12 +1,20 @@
+import { useState } from "react";
+import { AiOutlineMinus , AiOutlinePlus } from 'react-icons/ai';
+
 
 const Accordian = ({info , title})=>{
-    console.log(info);
-    
+    const [show , setShow] = useState(false);
+  
+
     return(
         <div className="qna-container">
             <h3 className="question">{title}</h3>
-            <p className="answer">{info}</p>
+            <button className="plusButton" onClick={()=>setShow(!show)}>
+                {show? <AiOutlineMinus/>: <AiOutlinePlus/>}
+                </button>
+            {show && <p className="answer">{info}</p>}
         </div>
+        
     )
 }
 
