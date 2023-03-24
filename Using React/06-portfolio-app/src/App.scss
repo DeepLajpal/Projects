@@ -1,0 +1,26 @@
+
+.App{
+  height: 100vh;
+
+      .sections{
+      width: 100%;
+      height: calc(100vh - 70px);
+      background-color: rgb(168, 34, 34);
+      position:relative ;
+      top:70px;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none;//this is only for firefox
+      
+      &::-webkit-scrollbar{ //this will support the chrome ,safari and other browsers
+        display: none;
+      }
+      > *{       // > This is a child selector
+        width: 100%;
+        height: calc(100vh - 70px);
+        scroll-snap-align: end;
+      }
+      
+}    
+}
+
