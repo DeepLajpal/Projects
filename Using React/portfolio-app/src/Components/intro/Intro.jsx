@@ -1,14 +1,19 @@
+import { useEffect, useRef } from 'react';
 import './intro.scss';
 
 
 export default function Intro() {
-
+ const profileimg=useRef();
+ 
+  useEffect(()=>{
+    profileimg.current.style.left="0%";
+  },[])
   
   return (
     <div className='intro' id="intro">
       <div className="left">
         <div className="imgContainer">
-          <img src='assets/DeepLajpal.Webp' alt='profile photo'></img>
+          <img ref={profileimg} src='assets/DeepLajpal.Webp' alt='profile photo'></img>
         </div>
       </div>
       <div className="right">
