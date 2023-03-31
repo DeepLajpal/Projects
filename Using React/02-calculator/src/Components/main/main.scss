@@ -1,0 +1,17 @@
+.result{
+    justify-self: start ;
+    font-size: 1.2rem;
+}
+
+.input{
+    width: 20rem;
+    height: 2rem;
+}
+
+@media only screen and (max-width: 400px){
+    .input{
+        width: 11rem;
+        height: 2rem;
+        justify-self: start;
+    }
+}

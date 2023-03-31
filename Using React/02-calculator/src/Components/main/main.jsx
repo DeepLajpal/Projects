@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import * as math from 'mathjs';
+import './main.scss';
+
 
 const InputField = () => {
   const [result, setResult] = useState("");
@@ -24,8 +26,8 @@ const InputField = () => {
 
   return (
     <>
-      <h3>Result: {result}</h3>
-      <input type='text' placeholder="Enter Number" onKeyUp={onEnter} onInput={validateInput} value={inputValue}></input>
+      <h3 className='result'>Result: {result}</h3>
+      <input className='input' type='text' placeholder="Enter Number" onKeyUp={onEnter} onInput={validateInput} value={inputValue}></input>
     </>
   );
 };

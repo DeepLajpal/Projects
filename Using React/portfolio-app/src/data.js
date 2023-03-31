@@ -20,14 +20,14 @@ export const featuredPortfolio = [
     {
       id: 4,
       title: "Ecommerce Web App",
-      img:'assets/EcommerceWebApp.webp',
+      img:'assets/DholiSatiTraders.png',
       projectURL: 'https://dholisatitraders.in/',
     },
     {
       id: 5,
-      title: "Hero Web Design",
-      img:
-        "https://cdn.dribbble.com/users/5031392/screenshots/15467520/media/c36b3b15b25b1e190d081abdbbf947cf.png?compress=1&resize=1200x900",
+      title: "Menu App",
+      img:'assets/menu.webp',
+      projectURL: 'https://menuapp-deeplajpal.netlify.app/#',
     },
     {
       id: 6,

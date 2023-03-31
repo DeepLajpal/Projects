@@ -10,14 +10,14 @@ export default function Topbar({menuOpen,setMenuOpen}) {
           <a href="#intro" className="logo">
             Deep Lajpal
           </a>
-        <div className="itemContainer">
+        {/* <div className="itemContainer">
           <Person className="icon" />
-          <span>+91 7065XXXXXX</span>
-        </div>
+          <span>+91 XXXXXXXXXX</span>
+        </div> */}
 
         <div className="itemContainer">
           <Mail className="icon" />
-          <span>lajpaldeep@gmail.com</span>
+          <span>deeplajpal.work@gmail.com</span>
         </div>
         </div>
 
