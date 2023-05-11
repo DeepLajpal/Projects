@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import { GiCrossMark } from 'react-icons/gi';
+
 
 export default function Cards() {
   const [data, setData] = useState([]);
@@ -16,12 +18,15 @@ export default function Cards() {
     document.body.style.overflow = 'auto';
   };
   const increaseColumn = () => {
-    setColumn(column+1);
-     }
+    if (column < 10) {
+      setColumn(column + 1);
+    }
+  }
   const decreaseColumn = () => {
-    
-        setColumn(column-1);
-     }
+    if (column > 1) {
+      setColumn(column - 1);
+    }
+  }
 
   const arrayOfCards = data?.map((card) => {
     return (
@@ -40,7 +45,8 @@ export default function Cards() {
 
   const selectedCardModal = selectedCard && (
     <div className="modal-overlay" onClick={handleCloseModal}>
-      <div className="modal">
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <button className="modalCrossBtn" onClick={handleCloseModal}><GiCrossMark /></button>
         <h1>{selectedCard.title}</h1>
         <p>{selectedCard.body}</p>
       </div>
@@ -61,15 +67,15 @@ export default function Cards() {
 
   return (
     <>
-    <div className="layoutSetting">
-        <button onClick={increaseColumn}>Increase Column</button>
+      <div className="layoutSetting">
+        <button className="btn1" onClick={increaseColumn}>Increase Column</button>
         <p>{column}</p>
-        <button onClick={decreaseColumn}>Decrease Column</button>
+        <button className="btn2" onClick={decreaseColumn}>Decrease Column</button>
 
-    </div>
+      </div>
       <div className="box" style={boxStyle}>{arrayOfCards}</div>
       {selectedCardModal}
-      <button onClick={fetchData}>Fetch Data</button>
+      <button className="fetchDataBtn" onClick={fetchData}>Fetch Data</button>
     </>
   );
 }
