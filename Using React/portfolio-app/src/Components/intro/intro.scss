@@ -1,5 +1,24 @@
 @import '../../global.scss';
 
+// .intro{
+//     background-color: white;
+//     display: grid;
+//     grid-template-rows: 1fr 0.8fr;
+//     .left{
+//         // background-color: lightblue;
+//         // overflow: hidden;
+        
+
+
+//        .imgContainer{
+
+//             img{
+//                 width: 100%;
+//             }
+
+//     }
+       
+//     }
 .intro{
     background-color: white;
     display: grid;
@@ -19,7 +38,7 @@
         justify-items: center;
         position: absolute;
         bottom: 0;
-        padding-right: 40px;
+        padding-right: 30px;
 
 
         
@@ -34,6 +53,7 @@
        
     }
     .right{
+        // background-color: lightcoral;
 
         .wrapper{
             width: 100%;
@@ -80,3 +100,10 @@
         }
     }
 }
+
+
+@media (max-width: 600px) {
+    .intro{
+        grid-template-rows: 1fr;
+    }
+  }
