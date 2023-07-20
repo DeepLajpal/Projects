@@ -1,49 +1,58 @@
-// steps to create/setup a context API
-// import a context
-// create a context
-// create a provider
-// create a consumer
-
-import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import axios from "axios";
 import reducer from "../reducers/productReducer";
 
 const AppContext = createContext();
 
+const API = "https://api.pujakaitem.com/api/products";
+
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  featureProducts: [],
+  isSingleLoading:false,
+  singleProduct:{}
+};
+
 const AppProvider = ({ children }) => {
-  const API = "https://api.pujakaitem.com/api/products";
-  const initialState = {
-    isLoading: false,
-    isError: false,
-    products: [],
-    featured: [],
-  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { state, dispatch } = useReducer(reducer, initialState);
-
-  const getProduct = async (url) => {
+  const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
     try {
-      const response = await axios.get(url); //return promise
-      const products = await response.data;
-      dispatch({ type: "SET_DATA", payload: products });
+      const res = await axios.get(url);
+      const products = await res.data;
+      dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {
-      dispatch({ type: "SET_ERROR" });
+      dispatch({ type: "API_ERROR" });
     }
   };
 
+  // my second API call for singleproduct page
+  const getSingleProduct = async (url)=>{
+    dispatch({ type: "SET_SINGLE_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const singleProducts = await res.data;
+      dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProducts });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  }
+
   useEffect(() => {
-    getProduct(API);
-  });
+    getProducts(API);
+  }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, getSingleProduct }}>{children}</AppContext.Provider>
   );
 };
 
-// custom hook
-const useGlobalProductContext = () => {
+// custom hooks
+const useProductContext = () => {
   return useContext(AppContext);
 };
 
-export { AppProvider, AppContext, useGlobalProductContext };
+export { AppProvider, AppContext, useProductContext };
