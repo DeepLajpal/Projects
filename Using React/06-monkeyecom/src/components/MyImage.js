@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-const MyImage = ({ imgs = [{ url: "" }] }) => {
+const MyImage = ({ imgs = [{ url: "" }] , id}) => {
   const [mainImage, setMainImage] = useState(imgs[0]);
 
   return (
@@ -10,7 +10,7 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
       <div className="grid grid-four-column">
         {imgs.map((curElm, index) => {
           return (
-            <figure>
+            <figure key={curElm.id}>
               <img
                 src={curElm.url}
                 alt={curElm.filename}
